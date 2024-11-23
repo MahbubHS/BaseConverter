@@ -47,10 +47,10 @@ This calculator supports number conversions between the following bases:
 
 Feel free to use this number conversion calculator for your own calculations!
 ## Click now
-- Webpage : [Calculator](https://GentleZen.github.io/Code/Calculator/index.html?)
+- Webpage : [Calculator](https://Oboshor.github.io/BaseConverter/index.html)
   
 ## Contact Me
 - Email: m.saad.bd.71@gmail.com
-- Facebook: [facebook.com/Saad Ahmed](https://facebook.com/saad.ahmed776)
+- Facebook: [facebook.com/Saad Ahmed](https://www.facebook.com/m.saad.7x)
 - Twitter: [@saad ahmed](https://twitter.com/m_saad_71)
-- Instagram: [Saad Ahmed](https://instagram.com/m_saad.72)
+- Instagram: [Saad Ahmed](https://instagram.com/m.saad.7x)
