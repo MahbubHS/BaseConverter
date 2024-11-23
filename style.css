@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'poppins';
+  src: url('poppins_regular.ttf') format('truetype');
+}
+
+body {
+  font-family: 'poppins';
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+label{
+  margin: 5px;
+}
+#wrapper td {
+  padding: .75rem;
+}
+
+#calcform {
+  max-width: 500px;
+  padding: 20px;
+  background: #C3D5CA;
+  border: 1px solid #E0E0E0;
+  border-radius: 7px;
+}
+
+#calcform button img {
+  filter: invert(100%);
+}
+
+#cal2tbl th {
+  font-weight: normal;
+}
+
+#cal2tbl td {
+  line-height: 1;
+}
+
+#cal2tbl th p {
+  word-break: break-all;
+}
+
+#cal2tbl p {
+  line-height: 1;
+}
+
+#cal2tbl tr td {
+  word-wrap: break-word;
+  max-width: 120px;
+}
+
+#cal2tbl tbody tr td:nth-child(3) {
+  background: #F8F8F8;
+  border: dashed 1px #333;
+}
+
+th {
+  padding-bottom: 2px;
+}
+
+td {
+  word-break: break-word;
+  /* Break words that exceed the cell width */
+  max-width: 200px;
+  /* Set a maximum width for the cells to limit the text length */
+  white-space: normal;
+  /* Allow text to wrap within the cell */
+}
+
+#cal {
+  background: #e9ecef;
+  padding: .375rem .75rem;
+  font-size: 13px;
+  color: #495057;
+  border: 1px solid #ced4da;
+}
+
+#cal2tbl{
+  font-size:12px;
+}
+
+#cal {
+  background: #e9ecef;
+  height: auto;
+}
+
+.btn span {
+  font-size: 14px;
+}
+
+#ab, .btn{
+  display: flex;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.TDs {
+  text-align: center;
+}
+abbr {
+  text-decoration: none;
+}
