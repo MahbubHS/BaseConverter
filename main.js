@@ -155,7 +155,7 @@ inputTypeSelect.addEventListener('change',() => {
 
   if (selectedValues.includes('2') || selectedValues.includes('3') || selectedValues.includes('4') || selectedValues.includes('5') || selectedValues.includes('6') || selectedValues.includes('7') || selectedValues.includes('8') || selectedValues.includes('9') || selectedValues.includes('10')) { existingInput.type = 'number'; }
   else {
-    existiÆngInput.type = 'text';
+    existingInput = 'text';
   }
 });
 
