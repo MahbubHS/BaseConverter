@@ -23,6 +23,10 @@ label{
   padding: .75rem;
 }
 
+.pd{
+padding-left:5%
+}
+
 #calcform {
   max-width: 500px;
   padding: 20px;
