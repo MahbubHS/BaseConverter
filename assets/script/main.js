@@ -81,7 +81,8 @@ function decimal2base(dec, y, b) {
   var nd = y.length - y.indexOf(".") - 1;
   if (nd > 6) nd = 6;
   if (id >= 0 && nd > 0) {
-    txt = "Multiply the number with the destination base raised to the power of decimals of the result (up to 6 digits resolution):<br>";
+    txt =
+      "Multiply the number with the destination base raised to the power of decimals of the result (up to 6 digits resolution):<br>";
     txt += "floor(" + dec + "&times;" + b + "<sup>" + nd + "</sup>) = ";
     dec = Math.floor(dec * Math.pow(b, nd));
     txt += dec;
@@ -92,7 +93,7 @@ function decimal2base(dec, y, b) {
     row += "<td>" + n + "/" + b + "</td>";
     row += "<td class='TDs'>" + Math.floor(n / b) + "</td>";
     row += "<td class='TDs'>" + (n % b).toFixed() + "</td>";
-    row += "<td class='TDs'>"+k+"</td>";
+    row += "<td class='TDs'>" + k + "</td>";
     row += "</tr>";
     n = Math.floor(n / b);
     //$("#cal2tbl tbody").append(row);
@@ -146,21 +147,24 @@ function onrst() {
 var inputTypeSelect = document.getElementById('sel1');
 var existingInput = document.getElementById('x');
 
-inputTypeSelect.addEventListener('change',() => {
+inputTypeSelect.addEventListener('change', () => {
   var selectedOptions = Array.from(inputTypeSelect.selectedOptions);
 
   var selectedValues = selectedOptions.map(function(option) {
     return option.value;
   });
 
-  if (selectedValues.includes('2') || selectedValues.includes('3') || selectedValues.includes('4') || selectedValues.includes('5') || selectedValues.includes('6') || selectedValues.includes('7') || selectedValues.includes('8') || selectedValues.includes('9') || selectedValues.includes('10')) { existingInput.type = 'number'; }
-  else {
-    existingInput = 'text';
+  for (let i = 2; i <= 10; i++) {
+    if (selectedValues.includes(`${i}`)) {
+      existingInput.type = 'number';
+    }
+    else {
+      existingInput.type = 'text';
+    }
   }
 });
 
 function onclear() {
-  
   xelem.value = "";
   yelem.value = "";
   calgroup.style.display = "none";
