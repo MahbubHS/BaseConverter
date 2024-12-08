@@ -16,15 +16,17 @@ h1 {
 footer {
   text-align: center;
 }
-label{
+
+label {
   margin: 5px;
 }
+
 #wrapper td {
   padding: .75rem;
 }
 
-.pd{
-padding-left:5%
+.pd {
+  padding-left: 5%
 }
 
 #calcform {
@@ -86,8 +88,8 @@ td {
   border: 1px solid #ced4da;
 }
 
-#cal2tbl{
-  font-size:12px;
+#cal2tbl {
+  font-size: 12px;
 }
 
 #cal {
@@ -99,7 +101,8 @@ td {
   font-size: 14px;
 }
 
-#ab, .btn{
+#ab,
+.btn {
   display: flex;
   margin-top: 5px;
   margin-left: 5px;
@@ -108,6 +111,21 @@ td {
 .TDs {
   text-align: center;
 }
+
 footer a {
   text-decoration: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .content p {
+    text-align: center;
+  }
 }
