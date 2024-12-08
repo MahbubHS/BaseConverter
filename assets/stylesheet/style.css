@@ -26,7 +26,7 @@ label {
 }
 
 .pd {
-  padding-left: 5%
+  padding-left: -5%;
 }
 
 #calcform {
@@ -127,5 +127,8 @@ footer a {
 @media (min-width: 768px) {
   .content p {
     text-align: center;
+  }
+  .pd{
+    padding-left: 0%;
   }
 }
