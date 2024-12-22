@@ -148,9 +148,8 @@ var inputTypeSelect = document.getElementById('sel1');
 var existingInput = document.getElementById('x');
 
 inputTypeSelect.addEventListener('change', () => {
-  var selectedValue = inputTypeSelect.value;
-  //selectedValues 2-10 number
-  if (selectedValue >= "2" && selectedValue <= "10") {
+  var selectedValue = parseInt(inputTypeSelect.value, 10);
+  if (selectedValue >= 2 && selectedValue <= 10) {
     existingInput.type = 'number';
   } else {
     existingInput.type = 'text';
