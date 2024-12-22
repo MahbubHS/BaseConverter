@@ -10,8 +10,8 @@ window.addEventListener("DOMContentLoaded", function () {
   var params = GetURLParams();
   if (Object.keys(params).length > 0 && params.x != "") {
     xelem.value = params.x;
-    sel1elem.selectedIndex = params.sel1 - 2;
-    sel2elem.selectedIndex = params.sel2 - 2;
+    sel1elem.value = params.sel1;
+    sel2elem.value = params.sel2;
     onconvert();
   }
 });
@@ -110,7 +110,38 @@ function decimal2base(dec, y, b) {
     "= (" + y + ")<sub>" + b + "</sub>";
 }
 
+function validateInput() {
+  const base = parseInt(sel1elem.value, 10);
+  const value = xelem.value.toUpperCase();
+  const validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base);
+  const isValid = [...value].every(char => validChars.includes(char));
+
+  if (!isValid) {
+    xelem.classList.add("input-error");
+    document.getElementById("inputError").style.display = "block";
+    document.getElementById("inputError").innerText = `Invalid input for base ${base}. Please use only characters: ${validChars}`;
+    return false;
+  } else {
+    xelem.classList.remove("input-error");
+    document.getElementById("inputError").style.display = "none";
+    return true;
+  }
+}
+
+function updateURLParams() {
+  const params = new URLSearchParams(window.location.search);
+  params.set('x', xelem.value);
+  params.set('sel1', sel1elem.value);
+  params.set('sel2', sel2elem.value);
+  window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
+}
+
 function onconvert() {
+  if (!validateInput()) {
+    alert("Please correct the input errors before converting.");
+    return;
+  }
+  updateURLParams();
   var x = xelem.value;
   var b1 = sel1elem.selectedIndex + 2;
   var b2 = sel2elem.selectedIndex + 2;
@@ -130,7 +161,7 @@ function onconvert() {
   var yd = yelem.value.match(/[\dA-Z]/g);
   var ylabel = "Result number";
   if (yd != null)
-    ylabel += " (" + yd.length + (yd.length == 1 ? " digit)" : " digits)");
+    ylabel += " (" + yd.length + (yd.length == 1) ? " digit)" : " digits)";
   document.getElementById("ylabel").innerHTML = ylabel;
   document.getElementById("b1txt").innerHTML = b1;
   document.getElementById("b2txt").innerHTML = b2;
@@ -160,6 +191,9 @@ inputTypeSelect.addEventListener("change", () => {
     existingInput.type = "text";
   }
 });
+
+xelem.addEventListener("input", validateInput);
+sel1elem.addEventListener("change", validateInput);
 
 function onclear() {
   xelem.value = "";

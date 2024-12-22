@@ -120,6 +120,11 @@ footer a {
   overflow: auto;
 }
 
+.input-error {
+  border-color: red;
+  background-color: #ffe6e6;
+}
+
 @media (min-width: 768px) {
   .content p {
     text-align: center;
