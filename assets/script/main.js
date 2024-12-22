@@ -5,7 +5,7 @@ const yelem = document.getElementById("y");
 const calgroup = document.getElementById("calgroup");
 const cal1elem = document.getElementById("cal1");
 const cal2elem = document.getElementById("cal2");
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
   calgroup.style.display = "none";
   var params = GetURLParams();
   if (Object.keys(params).length > 0 && params.x != "") {
@@ -21,7 +21,7 @@ function GetURLParams() {
   var regex = /[?&]([^=#]+)=([^&#]*)/g,
     params = {},
     match;
-  while (match = regex.exec(url)) {
+  while ((match = regex.exec(url))) {
     params[match[1]] = match[2];
   }
   return params;
@@ -30,7 +30,7 @@ function GetURLParams() {
 function copy(event) {
   event.preventDefault(); // Prevent page refresh
   yelem.select();
-  document.execCommand('copy');
+  document.execCommand("copy");
   yelem.setSelectionRange(0, 99999); // For mobile devices
   navigator.clipboard.writeText(yelem.value);
 }
@@ -66,7 +66,7 @@ function base2decimal(x, dec, b) {
 
 function digits_after_period(x) {
   f = x.toString();
-  i = f.indexOf('.');
+  i = f.indexOf(".");
   len = f.length - i - 1;
   return len;
 }
@@ -75,7 +75,9 @@ function decimal2base(dec, y, b) {
   var row,
     txt = "";
   //$("#cal2tbl tbody tr").remove();
-  document.getElementById("cal2tbl").getElementsByTagName('tbody')[0].innerHTML = "";
+  document
+    .getElementById("cal2tbl")
+    .getElementsByTagName("tbody")[0].innerHTML = "";
   if (dec < 0) dec = -dec;
   dec = dec.toString();
   var id = dec.indexOf(".");
@@ -98,11 +100,14 @@ function decimal2base(dec, y, b) {
     row += "</tr>";
     n = Math.floor(n / b);
     //$("#cal2tbl tbody").append(row);
-    var tableRef = document.getElementById('cal2tbl').getElementsByTagName('tbody')[0];
+    var tableRef = document
+      .getElementById("cal2tbl")
+      .getElementsByTagName("tbody")[0];
     var newRow = tableRef.insertRow(k);
     newRow.innerHTML = row;
   }
-  document.getElementById("cal2result").innerHTML = "= (" + y + ")<sub>" + b + "</sub>";
+  document.getElementById("cal2result").innerHTML =
+    "= (" + y + ")<sub>" + b + "</sub>";
 }
 
 function onconvert() {
@@ -113,8 +118,7 @@ function onconvert() {
     var y = new BigNumber(x, b1);
     //$("#x").css("background-color", "white");
     xelem.style.background = "white";
-  }
-  catch (err) {
+  } catch (err) {
     xelem.style.background = "#fff0f0";
     yelem.value = "";
     return;
@@ -125,7 +129,8 @@ function onconvert() {
 
   var yd = yelem.value.match(/[\dA-Z]/g);
   var ylabel = "Result number";
-  if (yd != null) ylabel += " (" + yd.length + ((yd.length == 1) ? " digit)" : " digits)");
+  if (yd != null)
+    ylabel += " (" + yd.length + (yd.length == 1 ? " digit)" : " digits)");
   document.getElementById("ylabel").innerHTML = ylabel;
   document.getElementById("b1txt").innerHTML = b1;
   document.getElementById("b2txt").innerHTML = b2;
@@ -141,18 +146,18 @@ function onconvert() {
 function onrst() {
   calgroup.style.display = "none";
   if (confirm("Do you really want to clear?")) {
-    console.log('Reset successful...')
+    console.log("Reset successful...");
   }
-};
-var inputTypeSelect = document.getElementById('sel1');
-var existingInput = document.getElementById('x');
+}
+var inputTypeSelect = document.getElementById("sel1");
+var existingInput = document.getElementById("x");
 
-inputTypeSelect.addEventListener('change', () => {
+inputTypeSelect.addEventListener("change", () => {
   var selectedValue = parseInt(inputTypeSelect.value, 10);
   if (selectedValue >= 2 && selectedValue <= 10) {
-    existingInput.type = 'number';
+    existingInput.type = "number";
   } else {
-    existingInput.type = 'text';
+    existingInput.type = "text";
   }
 });
 
@@ -160,4 +165,4 @@ function onclear() {
   xelem.value = "";
   yelem.value = "";
   calgroup.style.display = "none";
-};
+}
