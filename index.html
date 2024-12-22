@@ -29,275 +29,290 @@
     />
   </head>
 
-  <body>
-    <h1>Base Converter</h1>
-    <br />
-    <div class="content">
-      <p class="pd">Convert number from any base to any base:</p>
-      <form id="calcform" autocomplete="off">
-        <div class="form-group">
-          <label for="x">Enter number</label>
-          <input
-            style="text-transform: uppercase;"
-            type="number"
-            id="x"
-            name="x"
-            class="form-control form-control-lg"
-            required
-            autofocus
-          />
-          <div id="inputError" class="text-danger mt-2" style="display: none;"></div>
-        </div>
-        <div class="form-group">
-          <label for="sel1">From Base</label>
-          <select name="sel1" id="sel1" class="form-control">
-            <option value="2">2 (Binary)</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8 (Octal)</option>
-            <option value="9">9</option>
-            <option value="10" selected>10 (Decimal)</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16 (Hexadecimal)</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="sel2">To base</label>
-          <select name="sel2" id="sel2" class="form-control">
-            <option value="2">2 (Binary)</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8 (Octal)</option>
-            <option value="9">9</option>
-            <option value="10">10 (Decimal)</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16" selected>16 (Hexadecimal)</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-          </select>
-        </div>
-        <div id="ab" class="form-group md-1">
-          <button
-            id="br"
-            type="button"
-            title="Convert"
-            class="btn btn-success"
-            onclick="onconvert()"
-          >
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+  <body class="bg-light">
+    <div class="container mt-5">
+      <h1 class="text-center">Base Converter</h1>
+      <br />
+      <div class="content">
+        <p class="pd text-center">Convert number from any base to any base:</p>
+        <form
+          id="calcform"
+          autocomplete="off"
+          class="shadow p-4 bg-white rounded"
+        >
+          <div class="form-group mb-3">
+            <label for="x">Enter number</label>
+            <input
+              style="text-transform: uppercase"
+              type="number"
+              id="x"
+              name="x"
+              class="form-control form-control-lg"
+              required
+              autofocus
+            />
+            <div
+              id="inputError"
+              class="text-danger mt-2"
+              style="display: none"
+            ></div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="sel1">From Base</label>
+            <select name="sel1" id="sel1" class="form-control">
+              <option value="2">2 (Binary)</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8 (Octal)</option>
+              <option value="9">9</option>
+              <option value="10" selected>10 (Decimal)</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16 (Hexadecimal)</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+              <option value="32">32</option>
+              <option value="33">33</option>
+              <option value="34">34</option>
+              <option value="35">35</option>
+              <option value="36">36</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label for="sel2">To base</label>
+            <select name="sel2" id="sel2" class="form-control">
+              <option value="2">2 (Binary)</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8 (Octal)</option>
+              <option value="9">9</option>
+              <option value="10">10 (Decimal)</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16" selected>16 (Hexadecimal)</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+              <option value="32">32</option>
+              <option value="33">33</option>
+              <option value="34">34</option>
+              <option value="35">35</option>
+              <option value="36">36</option>
+            </select>
+          </div>
+          <div id="ab" class="form-group md-1 d-flex justify-content-between">
+            <button
+              id="br"
+              type="button"
+              title="Convert"
+              class="btn btn-success"
+              onclick="onconvert()"
             >
-              <path
-                d="M13.6 11.5799V14.3099C13.6 16.5899 12.69 17.4999 10.41 17.4999H7.69C5.42 17.4999 4.5 16.5899 4.5 14.3099V11.5799C4.5 9.3099 5.41 8.3999 7.69 8.3999H10.42C12.69 8.3999 13.6 9.3099 13.6 11.5799Z"
-                stroke="#ffff"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M17.5 7.68V10.41C17.5 12.69 16.59 13.6 14.31 13.6H13.6V11.58C13.6 9.31 12.69 8.4 10.41 8.4H8.39999V7.68C8.39999 5.4 9.30999 4.5 11.59 4.5H14.32C16.59 4.5 17.5 5.41 17.5 7.68Z"
-                stroke="#ffff"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M21 14C21 17.87 17.87 21 14 21L15.05 19.25"
-                stroke="#ffff"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M1 8C1 4.13 4.13 1 8 1L6.95 2.75"
-                stroke="#ffff"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Convert
-          </button>
-          <button
-            id="br"
-            type="button"
-            title="Clear"
-            class="btn btn-secondary"
-            onclick="onclear()"
-          >
-            <svg
-              width="25px"
-              height="25px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 9L15 15"
-                stroke="#ffff"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M15 9L9 15"
-                stroke="#ffff"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                r="9"
-                stroke="#ffff"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Clear
-          </button>
-          <button
-            id="br"
-            type="reset"
-            title="Reset"
-            class="btn btn-secondary"
-            onclick="onrst()"
-          >
-            <svg
-              fill="#ffff"
-              width="25px"
-              height="25px"
-              viewBox="0 0 32 32"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g data-name="Layer 39" id="Layer_39">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="vertical-align: middle; margin-right: 5px"
+              >
                 <path
-                  d="M21.19,6.52l3.26-1.63a1,1,0,0,0-.9-1.78l-6,3,0,0h0l-.07.07a.93.93,0,0,0-.18.16.76.76,0,0,0-.08.11l-.1.2,0,.14A.82.82,0,0,0,17,7s0,.09,0,.14,0,0,0,.05a.5.5,0,0,0,.09.21.64.64,0,0,0,0,.07l3,5A1,1,0,0,0,21,13a1,1,0,0,0,.51-.14,1,1,0,0,0,.35-1.37L19.91,8.24A8,8,0,0,1,18,24a1,1,0,0,0,0,2A10,10,0,0,0,21.19,6.52Z"
+                  d="M13.6 11.5799V14.3099C13.6 16.5899 12.69 17.4999 10.41 17.4999H7.69C5.42 17.4999 4.5 16.5899 4.5 14.3099V11.5799C4.5 9.3099 5.41 8.3999 7.69 8.3999H10.42C12.69 8.3999 13.6 9.3099 13.6 11.5799Z"
+                  stroke="#ffffff"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
                 <path
-                  d="M14,8a1,1,0,0,0,0-2,10,10,0,0,0-3.19,19.48L7.55,27.11a1,1,0,0,0-.44,1.34A1,1,0,0,0,8,29a.93.93,0,0,0,.45-.11l6-3s0,0,0,0h0a.46.46,0,0,0,.07-.07.93.93,0,0,0,.18-.16.76.76,0,0,0,.08-.11,1.86,1.86,0,0,0,.1-.2l0-.14A.78.78,0,0,0,15,25a.66.66,0,0,1,0-.14s0,0,0-.05a.78.78,0,0,0-.09-.21.64.64,0,0,0,0-.07l-3-5a1,1,0,0,0-1.72,1l1.95,3.25A8,8,0,0,1,14,8Z"
+                  d="M17.5 7.68V10.41C17.5 12.69 16.59 13.6 14.31 13.6H13.6V11.58C13.6 9.31 12.69 8.4 10.41 8.4H8.39999V7.68C8.39999 5.4 9.30999 4.5 11.59 4.5H14.32C16.59 4.5 17.5 5.41 17.5 7.68Z"
+                  stroke="#ffffff"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
-              </g>
-            </svg>
-            Reset
-          </button>
-        </div>
-        <br />
-        <div class="form-group">
-          <label for="y" id="ylabel" style="margin-top:5%">Result number</label>
-          <textarea
-            rows="2"
-            id="y"
-            class="form-control form-control-lg"
-            readonly
-          ></textarea>
-        </div>
-        <div class="form-group">
-          <button onclick="copy(event)" class="btn btn-secondary">
-            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-            <svg
-              fill="#ffff"
-              width="25px"
-              height="25px"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+                <path
+                  d="M21 14C21 17.87 17.87 21 14 21L15.05 19.25"
+                  stroke="#ffffff"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M1 8C1 4.13 4.13 1 8 1L6.95 2.75"
+                  stroke="#ffffff"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Convert
+            </button>
+            <button
+              id="br"
+              type="button"
+              title="Clear"
+              class="btn btn-secondary"
+              onclick="onclear()"
             >
-              <path
-                d="M8,7 L8,8 L6.5,8 C5.67157288,8 5,8.67157288 5,9.5 L5,18.5 C5,19.3284271 5.67157288,20 6.5,20 L13.5,20 C14.3284271,20 15,19.3284271 15,18.5 L15,17 L16,17 L16,18.5 C16,19.8807119 14.8807119,21 13.5,21 L6.5,21 C5.11928813,21 4,19.8807119 4,18.5 L4,9.5 C4,8.11928813 5.11928813,7 6.5,7 L8,7 Z M16,4 L10.5,4 C9.67157288,4 9,4.67157288 9,5.5 L9,14.5 C9,15.3284271 9.67157288,16 10.5,16 L17.5,16 C18.3284271,16 19,15.3284271 19,14.5 L19,7 L16.5,7 C16.2238576,7 16,6.77614237 16,6.5 L16,4 Z M20,6.52797748 L20,14.5 C20,15.8807119 18.8807119,17 17.5,17 L10.5,17 C9.11928813,17 8,15.8807119 8,14.5 L8,5.5 C8,4.11928813 9.11928813,3 10.5,3 L16.4720225,3 C16.6047688,2.99158053 16.7429463,3.03583949 16.8535534,3.14644661 L19.8535534,6.14644661 C19.9641605,6.25705373 20.0084195,6.39523125 20,6.52797748 Z M17,6 L18.2928932,6 L17,4.70710678 L17,6 Z M11.5,13 C11.2238576,13 11,12.7761424 11,12.5 C11,12.2238576 11.2238576,12 11.5,12 L13.5,12 C13.7761424,12 14,12.2238576 14,12.5 C14,12.7761424 13.7761424,13 13.5,13 L11.5,13 Z M11.5,11 C11.2238576,11 11,10.7761424 11,10.5 C11,10.2238576 11.2238576,10 11.5,10 L16.5,10 C16.7761424,10 17,10.2238576 17,10.5 C17,10.7761424 16.7761424,11 16.5,11 L11.5,11 Z M11.5,9 C11.2238576,9 11,8.77614237 11,8.5 C11,8.22385763 11.2238576,8 11.5,8 L16.5,8 C16.7761424,8 17,8.22385763 17,8.5 C17,8.77614237 16.7761424,9 16.5,9 L11.5,9 Z"
-              />
-            </svg>
-            Copy
-          </button>
-        </div>
-        <div class="form-group"></div>
-        <div id="calgroup" class="form-group">
-          <label>Calculation</label>
-          <div id="cal" class="form-control">
-            <div id="cal1">
-              <p>Base <span id="b1txt"></span> to decimal calculation:</p>
-              <p id="cal1txt"></p>
-            </div>
-            <div id="cal2">
-              <p>
-                Decimal to base
-                <span id="b2txt"></span> calculation:
-              </p>
-              <p id="cal2dec"></p>
-              <p>Divide by the base to get the digits from the remainders:</p>
-              <table id="cal2tbl" class="table">
-                <thead>
-                  <tr>
-                    <th>Division</th>
-                    <th>Quotient</th>
-                    <th>Remainder</th>
-                    <th>Index (Z-A)</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-              <p id="cal2result"></p>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="vertical-align: middle; margin-right: 5px"
+              >
+                <path
+                  d="M9 9L15 15"
+                  stroke="#ffffff"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15 9L9 15"
+                  stroke="#ffffff"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  stroke="#ffffff"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Clear
+            </button>
+            <button
+              id="br"
+              type="reset"
+              title="Reset"
+              class="btn btn-secondary"
+              onclick="onrst()"
+            >
+              <svg
+                fill="#ffffff"
+                width="20"
+                height="20"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                style="vertical-align: middle; margin-right: 5px"
+              >
+                <g data-name="Layer 39" id="Layer_39">
+                  <path
+                    d="M21.19,6.52l3.26-1.63a1,1,0,0,0-.9-1.78l-6,3,0,0h0l-.07.07a.93.93,0,0,0-.18.16.76.76,0,0,0-.08.11l-.1.2,0,.14A.82.82,0,0,0,17,7s0,.09,0,.14,0,0,0,.05a.5.5,0,0,0,.09.21.64.64,0,0,0,0,.07l3,5A1,1,0,0,0,21,13a1,1,0,0,0,.51-.14,1,1,0,0,0,.35-1.37L19.91,8.24A8,8,0,0,1,18,24a1,1,0,0,0,0,2A10,10,0,0,0,21.19,6.52Z"
+                  />
+                  <path
+                    d="M14,8a1,1,0,0,0,0-2,10,10,0,0,0-3.19,19.48L7.55,27.11a1,1,0,0,0-.44,1.34A1,1,0,0,0,8,29a.93.93,0,0,0,.45-.11l6-3s0,0,0,0h0a.46.46,0,0,0,.07-.07.93.93,0,0,0,.18-.16.76.76,0,0,0,.08-.11,1.86,1.86,0,0,0,.1-.2l0-.14A.78.78,0,0,0,15,25a.66.66,0,0,1,0-.14s0,0,0-.05a.78.78,0,0,0-.09-.21.64.64,0,0,0,0-.07l-3-5a1,1,0,0,0-1.72,1l1.95,3.25A8,8,0,0,1,14,8Z"
+                  />
+                </g>
+              </svg>
+              Reset
+            </button>
+          </div>
+          <br />
+          <div class="form-group mb-3">
+            <label for="y" id="ylabel" style="margin-top: 5%"
+              >Result number</label
+            >
+            <textarea
+              rows="2"
+              id="y"
+              class="form-control form-control-lg"
+              readonly
+            ></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <button onclick="copy(event)" class="btn btn-secondary">
+              <svg
+                fill="#ffffff"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                style="vertical-align: middle; margin-right: 5px"
+              >
+                <path
+                  d="M8,7 L8,8 L6.5,8 C5.67157288,8 5,8.67157288 5,9.5 L5,18.5 C5,19.3284271 5.67157288,20 6.5,20 L13.5,20 C14.3284271,20 15,19.3284271 15,18.5 L15,17 L16,17 L16,18.5 C16,19.8807119 14.8807119,21 13.5,21 L6.5,21 C5.11928813,21 4,19.8807119 4,18.5 L4,9.5 C4,8.11928813 5.11928813,7 6.5,7 L8,7 Z M16,4 L10.5,4 C9.67157288,4 9,4.67157288 9,5.5 L9,14.5 C9,15.3284271 9.67157288,16 10.5,16 L17.5,16 C18.3284271,16 19,15.3284271 19,14.5 L19,7 L16.5,7 C16.2238576,7 16,6.77614237 16,6.5 L16,4 Z M20,6.52797748 L20,14.5 C20,15.8807119 18.8807119,17 17.5,17 L10.5,17 C9.11928813,17 8,15.8807119 8,14.5 L8,5.5 C8,4.11928813 9.11928813,3 10.5,3 L16.4720225,3 C16.6047688,2.99158053 16.7429463,3.03583949 16.8535534,3.14644661 L19.8535534,6.14644661 C19.9641605,6.25705373 20.0084195,6.39523125 20,6.52797748 Z M17,6 L18.2928932,6 L17,4.70710678 L17,6 Z M11.5,13 C11.2238576,13 11,12.7761424 11,12.5 C11,12.2238576 11.2238576,12 11.5,12 L13.5,12 C13.7761424,12 14,12.2238576 14,12.5 C14,12.7761424 13.7761424,13 13.5,13 L11.5,13 Z M11.5,11 C11.2238576,11 11,10.7761424 11,10.5 C11,10.2238576 11.2238576,10 11.5,10 L16.5,10 C16.7761424,10 17,10.2238576 17,10.5 C17,10.7761424 16.7761424,11 16.5,11 L11.5,11 Z M11.5,9 C11.2238576,9 11,8.77614237 11,8.5 C11,8.22385763 11.2238576,8 11.5,8 L16.5,8 C16.7761424,8 17,8.22385763 17,8.5 C17,8.77614237 16.7761424,9 16.5,9 L11.5,9 Z"
+                />
+              </svg>
+              Copy
+            </button>
+          </div>
+          <div class="form-group"></div>
+          <div id="calgroup" class="form-group">
+            <label>Calculation</label>
+            <div id="cal" class="form-control">
+              <div id="cal1">
+                <p>Base <span id="b1txt"></span> to decimal calculation:</p>
+                <p id="cal1txt"></p>
+              </div>
+              <div id="cal2">
+                <p>
+                  Decimal to base
+                  <span id="b2txt"></span> calculation:
+                </p>
+                <p id="cal2dec"></p>
+                <p>Divide by the base to get the digits from the remainders:</p>
+                <table id="cal2tbl" class="table">
+                  <thead>
+                    <tr>
+                      <th>Division</th>
+                      <th>Quotient</th>
+                      <th>Remainder</th>
+                      <th>Index (Z-A)</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <p id="cal2result"></p>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <script src="./assets/script/main.js"></script>
   </body>
