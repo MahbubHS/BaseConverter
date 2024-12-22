@@ -27,7 +27,8 @@ function GetURLParams() {
   return params;
 }
 
-function copy() {
+function copy(event) {
+  event.preventDefault(); // Prevent page refresh
   yelem.select();
   document.execCommand('copy');
   yelem.setSelectionRange(0, 99999); // For mobile devices
@@ -149,18 +150,14 @@ var existingInput = document.getElementById('x');
 
 inputTypeSelect.addEventListener('change', () => {
   var selectedOptions = Array.from(inputTypeSelect.selectedOptions);
-
   var selectedValues = selectedOptions.map(function(option) {
     return option.value;
   });
-
-  for (let i = 2; i <= 10; i++) {
-    if (selectedValues.includes(`${i}`)) {
-      existingInput.type = 'number';
-    }
-    else {
-      existingInput.type = 'text';
-    }
+  //selectedValues 2-10 number
+  if (selectedValues.some(value => value >= "2" && value <= "10")) {
+    existingInput.type = 'number';
+  } else {
+    existingInput.type = 'text';
   }
 });
 
