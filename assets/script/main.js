@@ -127,7 +127,6 @@ function onconvert() {
   var ylabel = "Result number";
   if (yd != null) ylabel += " (" + yd.length + ((yd.length == 1) ? " digit)" : " digits)");
   document.getElementById("ylabel").innerHTML = ylabel;
-
   document.getElementById("b1txt").innerHTML = b1;
   document.getElementById("b2txt").innerHTML = b2;
   base2decimal(x, dec, b1);
@@ -149,12 +148,8 @@ var inputTypeSelect = document.getElementById('sel1');
 var existingInput = document.getElementById('x');
 
 inputTypeSelect.addEventListener('change', () => {
-  var selectedOptions = Array.from(inputTypeSelect.selectedOptions);
-  var selectedValues = selectedOptions.map(function(option) {
-    return option.value;
-  });
-  //selectedValues 2-10 number
-  if (selectedValues.some(value => value >= "2" && value <= "10")) {
+  var selectedValue = parseInt(inputTypeSelect.value, 10);
+  if (selectedValue >= 2 && selectedValue <= 10) {
     existingInput.type = 'number';
   } else {
     existingInput.type = 'text';
