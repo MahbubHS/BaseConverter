@@ -27,7 +27,8 @@ function GetURLParams() {
   return params;
 }
 
-function copy() {
+function copy(event) {
+  event.preventDefault(); // Prevent page refresh
   yelem.select();
   document.execCommand('copy');
   yelem.setSelectionRange(0, 99999); // For mobile devices
