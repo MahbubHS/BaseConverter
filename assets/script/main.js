@@ -5,6 +5,8 @@ const yelem = document.getElementById("y");
 const calgroup = document.getElementById("calgroup");
 const cal1elem = document.getElementById("cal1");
 const cal2elem = document.getElementById("cal2");
+const convertBtn = document.getElementById("convertBtn");
+
 window.addEventListener("DOMContentLoaded", function () {
   calgroup.style.display = "none";
   var params = GetURLParams();
@@ -14,8 +16,7 @@ window.addEventListener("DOMContentLoaded", function () {
     sel2elem.value = params.sel2;
     onconvert();
   }
-  const savedTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", savedTheme);
+  toggleConvertButton();
 });
 
 function GetURLParams() {
@@ -196,13 +197,21 @@ inputTypeSelect.addEventListener("change", () => {
   }
 });
 
-xelem.addEventListener("input", validateInput);
+xelem.addEventListener("input", () => {
+  validateInput();
+  toggleConvertButton();
+});
 sel1elem.addEventListener("change", validateInput);
 
 function onclear() {
   xelem.value = "";
   yelem.value = "";
   calgroup.style.display = "none";
+  toggleConvertButton();
+}
+
+function toggleConvertButton() {
+  convertBtn.disabled = xelem.value.trim() === "";
 }
 
 // Removed theme toggle event listener

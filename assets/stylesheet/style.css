@@ -116,7 +116,7 @@ footer a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: auto;
+  overflow: hidden; /* Prevent vertical scrolling */
 }
 
 .input-error {
