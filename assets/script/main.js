@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", function () {
   calgroup.style.display = "none";
   var params = GetURLParams();
   if (Object.keys(params).length > 0 && params.x != "") {
-    xelem.value.toUpperCase() = params.x;
+    xelem.value = params.x;
     sel1elem.value = params.sel1;
     sel2elem.value = params.sel2;
     onconvert();
@@ -137,7 +137,7 @@ function validateInput() {
 
 function updateURLParams() {
   const params = new URLSearchParams(window.location.search);
-  params.set('x', xelem.value.toUpperCase());
+  params.set('x', xelem.value.toUpperCase().trim());
   params.set('sel1', sel1elem.value);
   params.set('sel2', sel2elem.value);
   window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
@@ -149,7 +149,7 @@ function onconvert() {
     return;
   }
   updateURLParams();
-  var x = xelem.value.toUpperCase();
+  var x = xelem.value.toUpperCase().trim();
   var b1 = sel1elem.selectedIndex + 2;
   var b2 = sel2elem.selectedIndex + 2;
   try {
