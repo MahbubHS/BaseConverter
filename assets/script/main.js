@@ -126,6 +126,7 @@ function validateInput() {
     const validCharsString = validCharsArray.join(', ') + " & " + lastChar;
     document.getElementById("inputError").style.display = "block";
     document.getElementById("inputError").innerText = `Invalid input for base ${base}. Please use only characters: ${validCharsString}`;
+    convertBtn.disabled = true;
     return false;
   } else {
     xelem.classList.remove("input-error");
@@ -182,6 +183,7 @@ function onconvert() {
 function onrst() {
   calgroup.style.display = "none";
   if (confirm("Do you really want to clear?")) {
+    onclear();
     console.log("Reset successful...");
   }
 }
@@ -212,6 +214,5 @@ function onclear() {
 
 function toggleConvertButton() {
   convertBtn.disabled = xelem.value.trim() === "";
+  validateInput();
 }
-
-// Removed theme toggle event listener
