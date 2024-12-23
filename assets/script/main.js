@@ -11,11 +11,11 @@ window.addEventListener("DOMContentLoaded", function () {
   calgroup.style.display = "none";
   var params = GetURLParams();
   if (Object.keys(params).length > 0 && params.x != "") {
-    xelem.value = params.x;
+    xelem.value = params.x; // Value is already decoded in GetURLParams
     sel1elem.value = params.sel1;
     sel2elem.value = params.sel2;
-    onconvert();
     inputType();
+    onconvert();
   }
   toggleConvertButton();
 });
@@ -26,7 +26,7 @@ function GetURLParams() {
     params = {},
     match;
   while ((match = regex.exec(url))) {
-    params[match[1]] = match[2];
+    params[match[1]] = decodeURIComponent(match[2]); // Decode URL parameter value
   }
   return params;
 }
