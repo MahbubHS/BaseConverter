@@ -28,8 +28,8 @@ label {
 #calcform {
   max-width: 500px;
   padding: 20px;
-  background: #C3D5CA;
-  border: 1px solid #E0E0E0;
+  background: var(--form-bg);
+  border: 1px solid var(--form-border);
   border-radius: 7px;
 }
 
@@ -59,8 +59,8 @@ label {
 }
 
 #cal2tbl tbody tr td:nth-child(3) {
-  background: #F8F8F8;
-  border: dashed 1px #333;
+  background: var(--table-bg);
+  border: dashed 1px var(--table-border);
 }
 
 th {
@@ -77,11 +77,11 @@ td {
 }
 
 #cal {
-  background: #e9ecef;
+  background: var(--cal-bg);
   padding: .375rem .75rem;
   font-size: 13px;
-  color: #495057;
-  border: 1px solid #ced4da;
+  color: var(--cal-text);
+  border: 1px solid var(--cal-border);
 }
 
 #cal2tbl {
@@ -89,7 +89,7 @@ td {
 }
 
 #cal {
-  background: #e9ecef;
+  background: var(--cal-bg);
   height: auto;
 }
 
@@ -132,4 +132,41 @@ footer a {
   .pd{
     padding-left: 0;
   }
+}
+
+/* Light Theme */
+:root[data-theme='light'] {
+  --form-bg: #ffffff;
+  --form-border: #e0e0e0;
+  --table-bg: #f8f8f8;
+  --table-border: #333;
+  --cal-bg: #e9ecef;
+  --cal-text: #495057;
+  --cal-border: #ced4da;
+}
+
+/* Dark Theme */
+:root[data-theme='dark'] {
+  --form-bg: #2d2d2d;
+  --form-border: #444;
+  --table-bg: #3a3a3a;
+  --table-border: #666;
+  --cal-bg: #3a3a3a;
+  --cal-text: #e9ecef;
+  --cal-border: #555;
+}
+
+body[data-theme='dark'] {
+  background-color: #121212;
+  color: #e9ecef;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
 }

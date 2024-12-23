@@ -14,6 +14,8 @@ window.addEventListener("DOMContentLoaded", function () {
     sel2elem.value = params.sel2;
     onconvert();
   }
+  const savedTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", savedTheme);
 });
 
 function GetURLParams() {
@@ -113,13 +115,16 @@ function decimal2base(dec, y, b) {
 function validateInput() {
   const base = parseInt(sel1elem.value, 10);
   const value = xelem.value.toUpperCase();
-  const validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base);
-  const isValid = [...value].every(char => validChars.includes(char));
+  const validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base) + ".";
+  const isValid = [...value].every(char => validChars.includes(char) && (char !== '.' || value.indexOf('.') === value.lastIndexOf('.')));
 
   if (!isValid) {
     xelem.classList.add("input-error");
+    const validCharsArray = validChars.slice(0, -1).split('');
+    const lastChar = validCharsArray.pop();
+    const validCharsString = validCharsArray.join(', ') + " & " + lastChar;
     document.getElementById("inputError").style.display = "block";
-    document.getElementById("inputError").innerText = `Invalid input for base ${base}. Please use only characters: ${validChars}`;
+    document.getElementById("inputError").innerText = `Invalid input for base ${base}. Please use only characters: ${validCharsString}`;
     return false;
   } else {
     xelem.classList.remove("input-error");
@@ -200,3 +205,10 @@ function onclear() {
   yelem.value = "";
   calgroup.style.display = "none";
 }
+
+document.getElementById("themeToggle").addEventListener("click", function () {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+});
