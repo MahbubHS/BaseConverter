@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", function () {
     sel1elem.value = params.sel1;
     sel2elem.value = params.sel2;
     onconvert();
+    inputType();
   }
   toggleConvertButton();
 });
@@ -115,17 +116,24 @@ function decimal2base(dec, y, b) {
 
 function validateInput() {
   const base = parseInt(sel1elem.value, 10);
-  const value = xelem.value.toUpperCase();
-  const validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base) + ".";
-  const isValid = [...value].every(char => validChars.includes(char) && (char !== '.' || value.indexOf('.') === value.lastIndexOf('.')));
+  const value = xelem.value;
+  const validChars =
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base) + ".";
+  const isValid = [...value].every(
+    (char) =>
+      validChars.includes(char) &&
+      (char !== "." || value.indexOf(".") === value.lastIndexOf("."))
+  );
 
   if (!isValid) {
     xelem.classList.add("input-error");
-    const validCharsArray = validChars.slice(0, -1).split('');
+    const validCharsArray = validChars.slice(0, -1).split("");
     const lastChar = validCharsArray.pop();
-    const validCharsString = validCharsArray.join(', ') + " & " + lastChar;
+    const validCharsString = validCharsArray.join(", ") + " & " + lastChar;
     document.getElementById("inputError").style.display = "block";
-    document.getElementById("inputError").innerText = `Invalid input for base ${base}. Please use only characters: ${validCharsString}`;
+    document.getElementById(
+      "inputError"
+    ).innerText = `Invalid input for base ${base}. Please use only characters: ${validCharsString}`;
     convertBtn.disabled = true;
     return false;
   } else {
@@ -137,10 +145,10 @@ function validateInput() {
 
 function updateURLParams() {
   const params = new URLSearchParams(window.location.search);
-  params.set('x', xelem.value.toUpperCase().trim());
-  params.set('sel1', sel1elem.value);
-  params.set('sel2', sel2elem.value);
-  window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
+  params.set("x", xelem.value);
+  params.set("sel1", sel1elem.value);
+  params.set("sel2", sel2elem.value);
+  window.history.replaceState({}, "", `${window.location.pathname}?${params}`);
 }
 
 function onconvert() {
@@ -190,16 +198,19 @@ function onrst() {
 var inputTypeSelect = document.getElementById("sel1");
 var existingInput = document.getElementById("x");
 
-inputTypeSelect.addEventListener("change", () => {
+function inputType() {
   var selectedValue = parseInt(inputTypeSelect.value, 10);
   if (selectedValue >= 2 && selectedValue <= 10) {
     existingInput.type = "number";
   } else {
     existingInput.type = "text";
   }
-});
+}
+
+inputTypeSelect.addEventListener("change", inputType);
 
 xelem.addEventListener("input", () => {
+  xelem.value = xelem.value.toUpperCase().trim();
   validateInput();
   toggleConvertButton();
 });
