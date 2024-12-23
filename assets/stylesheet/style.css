@@ -32,7 +32,7 @@ label {
   padding: 20px;
   background: #ffffff;
   border: 1px solid #e0e0e0;
-  border-radius: 10px; /* Increased border radius */
+  border-radius: 20px; /* Increased border radius for more rounded appearance */
 }
 
 #calcform button img {
@@ -63,7 +63,7 @@ label {
 #cal2tbl tbody tr td:nth-child(3) {
   background: #f8f8f8;
   border: dashed 1px #333;
-  color: #495057; /* Adjust text color to fit theme */
+  color: #212529; /* Adjusted text color for better contrast */
 }
 
 th {
@@ -83,7 +83,7 @@ td {
   background: #e9ecef;
   padding: .375rem .75rem;
   font-size: 13px;
-  color: #495057;
+  color: #212529; /* Adjusted text color for better contrast */
   border: 1px solid #ced4da;
   height: auto;
 }
