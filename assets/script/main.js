@@ -152,10 +152,9 @@ function onconvert() {
   var b2 = sel2elem.selectedIndex + 2;
   try {
     var y = new BigNumber(x, b1);
-    //$("#x").css("background-color", "white");
-    xelem.style.background = "white";
+    xelem.style.background = "var(--form-bg)"; // Use CSS variable for background color
   } catch (err) {
-    xelem.style.background = "#fff0f0";
+    xelem.style.background = "var(--input-error-bg)"; // Use CSS variable for error background color
     yelem.value = "";
     return;
   }

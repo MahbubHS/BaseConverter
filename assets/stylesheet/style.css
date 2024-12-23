@@ -30,7 +30,7 @@ label {
   padding: 20px;
   background: var(--form-bg);
   border: 1px solid var(--form-border);
-  border-radius: 7px;
+  border-radius: 10px; /* Increased border radius */
 }
 
 #calcform button img {
@@ -61,6 +61,7 @@ label {
 #cal2tbl tbody tr td:nth-child(3) {
   background: var(--table-bg);
   border: dashed 1px var(--table-border);
+  color: var(--cal-text); /* Adjust text color to fit theme */
 }
 
 th {
@@ -143,6 +144,11 @@ footer a {
   --cal-bg: #e9ecef;
   --cal-text: #495057;
   --cal-border: #ced4da;
+  --btn-secondary-bg: #6c757d;
+  --btn-secondary-border: #6c757d;
+  --btn-success-bg: #28a745;
+  --btn-success-border: #28a745;
+  --input-error-bg: #ffe6e6;
 }
 
 /* Dark Theme */
@@ -154,6 +160,11 @@ footer a {
   --cal-bg: #3a3a3a;
   --cal-text: #e9ecef;
   --cal-border: #555;
+  --btn-secondary-bg: #5a6268;
+  --btn-secondary-border: #5a6268;
+  --btn-success-bg: #218838;
+  --btn-success-border: #218838;
+  --input-error-bg: #5a2a2a;
 }
 
 body[data-theme='dark'] {
@@ -162,11 +173,11 @@ body[data-theme='dark'] {
 }
 
 .btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: var(--btn-secondary-bg);
+  border-color: var(--btn-secondary-border);
 }
 
 .btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: var(--btn-success-bg);
+  border-color: var(--btn-success-border);
 }
