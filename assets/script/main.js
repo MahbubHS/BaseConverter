@@ -5,15 +5,17 @@ const yelem = document.getElementById("y");
 const calgroup = document.getElementById("calgroup");
 const cal1elem = document.getElementById("cal1");
 const cal2elem = document.getElementById("cal2");
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
   calgroup.style.display = "none";
   var params = GetURLParams();
   if (Object.keys(params).length > 0 && params.x != "") {
     xelem.value = params.x;
-    sel1elem.selectedIndex = params.sel1 - 2;
-    sel2elem.selectedIndex = params.sel2 - 2;
+    sel1elem.value = params.sel1;
+    sel2elem.value = params.sel2;
     onconvert();
   }
+  const savedTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", savedTheme);
 });
 
 function GetURLParams() {
@@ -21,7 +23,7 @@ function GetURLParams() {
   var regex = /[?&]([^=#]+)=([^&#]*)/g,
     params = {},
     match;
-  while (match = regex.exec(url)) {
+  while ((match = regex.exec(url))) {
     params[match[1]] = match[2];
   }
   return params;
@@ -30,7 +32,7 @@ function GetURLParams() {
 function copy(event) {
   event.preventDefault(); // Prevent page refresh
   yelem.select();
-  document.execCommand('copy');
+  document.execCommand("copy");
   yelem.setSelectionRange(0, 99999); // For mobile devices
   navigator.clipboard.writeText(yelem.value);
 }
@@ -66,7 +68,7 @@ function base2decimal(x, dec, b) {
 
 function digits_after_period(x) {
   f = x.toString();
-  i = f.indexOf('.');
+  i = f.indexOf(".");
   len = f.length - i - 1;
   return len;
 }
@@ -75,7 +77,9 @@ function decimal2base(dec, y, b) {
   var row,
     txt = "";
   //$("#cal2tbl tbody tr").remove();
-  document.getElementById("cal2tbl").getElementsByTagName('tbody')[0].innerHTML = "";
+  document
+    .getElementById("cal2tbl")
+    .getElementsByTagName("tbody")[0].innerHTML = "";
   if (dec < 0) dec = -dec;
   dec = dec.toString();
   var id = dec.indexOf(".");
@@ -98,24 +102,59 @@ function decimal2base(dec, y, b) {
     row += "</tr>";
     n = Math.floor(n / b);
     //$("#cal2tbl tbody").append(row);
-    var tableRef = document.getElementById('cal2tbl').getElementsByTagName('tbody')[0];
+    var tableRef = document
+      .getElementById("cal2tbl")
+      .getElementsByTagName("tbody")[0];
     var newRow = tableRef.insertRow(k);
     newRow.innerHTML = row;
   }
-  document.getElementById("cal2result").innerHTML = "= (" + y + ")<sub>" + b + "</sub>";
+  document.getElementById("cal2result").innerHTML =
+    "= (" + y + ")<sub>" + b + "</sub>";
+}
+
+function validateInput() {
+  const base = parseInt(sel1elem.value, 10);
+  const value = xelem.value.toUpperCase();
+  const validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base) + ".";
+  const isValid = [...value].every(char => validChars.includes(char) && (char !== '.' || value.indexOf('.') === value.lastIndexOf('.')));
+
+  if (!isValid) {
+    xelem.classList.add("input-error");
+    const validCharsArray = validChars.slice(0, -1).split('');
+    const lastChar = validCharsArray.pop();
+    const validCharsString = validCharsArray.join(', ') + " & " + lastChar;
+    document.getElementById("inputError").style.display = "block";
+    document.getElementById("inputError").innerText = `Invalid input for base ${base}. Please use only characters: ${validCharsString}`;
+    return false;
+  } else {
+    xelem.classList.remove("input-error");
+    document.getElementById("inputError").style.display = "none";
+    return true;
+  }
+}
+
+function updateURLParams() {
+  const params = new URLSearchParams(window.location.search);
+  params.set('x', xelem.value);
+  params.set('sel1', sel1elem.value);
+  params.set('sel2', sel2elem.value);
+  window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
 }
 
 function onconvert() {
+  if (!validateInput()) {
+    alert("Please correct the input errors before converting.");
+    return;
+  }
+  updateURLParams();
   var x = xelem.value;
   var b1 = sel1elem.selectedIndex + 2;
   var b2 = sel2elem.selectedIndex + 2;
   try {
     var y = new BigNumber(x, b1);
-    //$("#x").css("background-color", "white");
-    xelem.style.background = "white";
-  }
-  catch (err) {
-    xelem.style.background = "#fff0f0";
+    xelem.style.background = "var(--form-bg)"; // Use CSS variable for background color
+  } catch (err) {
+    xelem.style.background = "var(--input-error-bg)"; // Use CSS variable for error background color
     yelem.value = "";
     return;
   }
@@ -125,7 +164,8 @@ function onconvert() {
 
   var yd = yelem.value.match(/[\dA-Z]/g);
   var ylabel = "Result number";
-  if (yd != null) ylabel += " (" + yd.length + ((yd.length == 1) ? " digit)" : " digits)");
+  if (yd != null)
+    ylabel += " (" + yd.length + (yd.length == 1) ? " digit)" : " digits)";
   document.getElementById("ylabel").innerHTML = ylabel;
   document.getElementById("b1txt").innerHTML = b1;
   document.getElementById("b2txt").innerHTML = b2;
@@ -141,23 +181,33 @@ function onconvert() {
 function onrst() {
   calgroup.style.display = "none";
   if (confirm("Do you really want to clear?")) {
-    console.log('Reset successful...')
+    console.log("Reset successful...");
   }
-};
-var inputTypeSelect = document.getElementById('sel1');
-var existingInput = document.getElementById('x');
+}
+var inputTypeSelect = document.getElementById("sel1");
+var existingInput = document.getElementById("x");
 
-inputTypeSelect.addEventListener('change', () => {
+inputTypeSelect.addEventListener("change", () => {
   var selectedValue = parseInt(inputTypeSelect.value, 10);
   if (selectedValue >= 2 && selectedValue <= 10) {
-    existingInput.type = 'number';
+    existingInput.type = "number";
   } else {
-    existingInput.type = 'text';
+    existingInput.type = "text";
   }
 });
+
+xelem.addEventListener("input", validateInput);
+sel1elem.addEventListener("change", validateInput);
 
 function onclear() {
   xelem.value = "";
   yelem.value = "";
   calgroup.style.display = "none";
-};
+}
+
+document.getElementById("themeToggle").addEventListener("click", function () {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+});
