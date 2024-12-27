@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'poppins';
+  font-family: 'poppins', sans-serif;
   font-size: 14px;
   background-color: #f8f9fa; /* Default background color */
   color: #212529; /* Default text color */
@@ -120,9 +120,12 @@ footer a {
 }
 
 .input-error {
-  /*colour of the error message */
   border-color: #bc3545;
   background-color: #ffe6e6;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (min-width: 768px) {

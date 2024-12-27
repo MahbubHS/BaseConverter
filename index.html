@@ -3,63 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="format-detection" content="telephone = no" />
+    <meta name="format-detection" content="telephone=no" />
     <title>Base converter</title>
     <meta
       name="description"
-      content="Base conversion calculator with steps: binary,decimal,octal,hex conversion."
+      content="Base conversion calculator with steps: binary, decimal, octal, hex conversion."
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/bignumber.js/bignumber.min.js"></script>
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./assets/stylesheet/style.css"
-    />
+    <link rel="stylesheet" type="text/css" href="./assets/stylesheet/style.css" />
   </head>
 
-  <body class="bg-light">
-    <div class="container mt-5">
-      <h1 class="text-center">Base Converter</h1>
+  <body class="bg-gray-100">
+    <div class="container mx-auto mt-10">
+      <h1 class="text-center text-2xl font-bold">Base Converter</h1>
       <br />
       <div class="content">
-        <p class="pd text-center">Convert number from any base to any base:</p>
-        <form
-          id="calcform"
-          autocomplete="off"
-          class="shadow p-4 bg-white rounded"
-        >
-          <div class="form-group mb-3">
-            <label for="x">Enter number</label>
+        <p class="text-center">Convert number from any base to any base:</p>
+        <form id="calcform" autocomplete="off" class="shadow p-6 bg-white rounded-lg">
+          <div class="mb-4">
+            <label for="x" class="block text-gray-700">Enter number</label>
             <input
               style="text-transform: uppercase"
-              type="number"
+              type="text"
               id="x"
               name="x"
-              class="form-control form-control-lg"
+              class="form-input mt-1 block w-full"
               required
               autofocus
             />
-            <div
-              id="inputError"
-              class="text-danger mt-2"
-              style="display: none"
-            ></div>
+            <div id="inputError" class="text-red-500 mt-2 hidden"></div>
           </div>
-          <div class="form-group mb-3">
-            <label for="sel1">From Base</label>
-            <select name="sel1" id="sel1" class="form-control">
+          <div class="mb-4">
+            <label for="sel1" class="block text-gray-700">From Base</label>
+            <select name="sel1" id="sel1" class="form-select mt-1 block w-full">
               <option value="2">2 (Binary)</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -97,9 +75,9 @@
               <option value="36">36</option>
             </select>
           </div>
-          <div class="form-group mb-3">
-            <label for="sel2">To base</label>
-            <select name="sel2" id="sel2" class="form-control">
+          <div class="mb-4">
+            <label for="sel2" class="block text-gray-700">To base</label>
+            <select name="sel2" id="sel2" class="form-select mt-1 block w-full">
               <option value="2">2 (Binary)</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -137,12 +115,12 @@
               <option value="36">36</option>
             </select>
           </div>
-          <div id="ab" class="form-group md-1 d-flex justify-content-between">
+          <div id="ab" class="mb-4 flex justify-between">
             <button
               id="convertBtn"
               type="button"
               title="Convert"
-              class="btn btn-success"
+              class="btn btn-success bg-green-500 text-white px-4 py-2 rounded"
               onclick="onconvert()"
               disabled
             >
@@ -189,7 +167,7 @@
               id="br"
               type="button"
               title="Clear"
-              class="btn btn-secondary"
+              class="btn btn-secondary bg-gray-500 text-white px-4 py-2 rounded"
               onclick="onclear()"
             >
               <svg
@@ -230,7 +208,7 @@
               id="br"
               type="reset"
               title="Reset"
-              class="btn btn-secondary"
+              class="btn btn-secondary bg-gray-500 text-white px-4 py-2 rounded"
               onclick="onrst()"
             >
               <svg
@@ -254,19 +232,17 @@
             </button>
           </div>
           <br />
-          <div class="form-group mb-3">
-            <label for="y" id="ylabel" style="margin-top: 5%"
-              >Result number</label
-            >
+          <div class="mb-4">
+            <label for="y" id="ylabel" class="block text-gray-700">Result number</label>
             <textarea
               rows="2"
               id="y"
-              class="form-control form-control-lg"
+              class="form-textarea mt-1 block w-full"
               readonly
             ></textarea>
           </div>
-          <div class="form-group mb-3">
-            <button onclick="copy(event)" class="btn btn-secondary">
+          <div class="mb-4">
+            <button onclick="copy(event)" class="btn btn-secondary bg-gray-500 text-white px-4 py-2 rounded">
               <svg
                 fill="#ffffff"
                 width="20"
@@ -284,8 +260,8 @@
           </div>
           <div class="form-group"></div>
           <div id="calgroup" class="form-group">
-            <label>Calculation</label>
-            <div id="cal" class="form-control">
+            <label class="block text-gray-700">Calculation</label>
+            <div id="cal" class="form-control bg-gray-200 p-4 rounded">
               <div id="cal1">
                 <p>Base <span id="b1txt"></span> to decimal calculation:</p>
                 <p id="cal1txt"></p>
@@ -297,7 +273,7 @@
                 </p>
                 <p id="cal2dec"></p>
                 <p>Divide by the base to get the digits from the remainders:</p>
-                <table id="cal2tbl" class="table">
+                <table id="cal2tbl" class="table-auto w-full">
                   <thead>
                     <tr>
                       <th>Division</th>
@@ -317,10 +293,10 @@
     </div>
     <script src="./assets/script/main.js"></script>
   </body>
-  <footer>
-    Deployed by <a href="https://github.com/oboshor">Saad Ahmed</a>
+  <footer class="text-center mt-10">
+    Deployed by <a href="https://github.com/oboshor" class="text-blue-500">Saad Ahmed</a>
   </footer>
-  <footer>
+  <footer class="text-center mt-2">
     All rights reserved | Copyright &copy;
     <span id="currentYear">
       <script>

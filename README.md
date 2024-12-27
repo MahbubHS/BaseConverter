@@ -40,16 +40,18 @@ This calculator supports number conversions between the following bases:
 - Decimal (base 10)
 - Hexadecimal (base 16)
 - All types of base (2-36)
+
 ## Note
 
 - The calculator only accepts non-negative numbers for conversion.
 - The calculator only accepts digits valid for the given base.
 
 Feel free to use this number conversion calculator for your own calculations!
+
 ## Click now
 - GitHub-page : [Calculator](https://Oboshor.github.io/BaseConverter/index.html)
 - Vercel : [Converter-saad](https://converter-saad.vercel.app/)
-  
+
 ## Contact Me
 - Email: m.saad.bd.71@gmail.com
 - Facebook: [facebook.com/Saad Ahmed](https://www.facebook.com/m.saad.7x)
