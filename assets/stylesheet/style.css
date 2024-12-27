@@ -35,10 +35,6 @@ label {
   border-radius: 20px; /* Increased border radius for more rounded appearance */
 }
 
-#calcform button img {
-  filter: invert(100%);
-}
-
 #cal2tbl th {
   font-weight: normal;
 }
@@ -92,17 +88,6 @@ td {
   font-size: 12px;
 }
 
-.btn span {
-  font-size: 14px;
-}
-
-#ab,
-.btn {
-  display: flex;
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
 .TDs {
   text-align: center;
 }
@@ -135,14 +120,4 @@ footer a {
   .pd{
     padding-left: 0;
   }
-}
-
-.btn-secondary {
-  background-color: #6c757d; /* Default button color */
-  border-color: #6c757d; /* Default button border color */
-}
-
-.btn-success {
-  background-color: #28a745; /* Default button color */
-  border-color: #28a745; /* Default button border color */
 }
