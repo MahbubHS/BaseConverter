@@ -17,27 +17,27 @@
 
   <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-      <h1 class="text-center text-2xl font-bold">Base Converter</h1>
+      <h1 class="text-center text-4xl font-bold text-gray-800">Base Converter</h1>
       <br />
       <div class="content">
-        <p class="text-center">Convert number from any base to any base:</p>
-        <form id="calcform" autocomplete="off" class="shadow p-6 bg-white rounded-lg">
-          <div class="mb-4">
-            <label for="x" class="block text-gray-700">Enter number</label>
+        <p class="text-center text-lg text-gray-600">Convert number from any base to any base:</p>
+        <form id="calcform" autocomplete="off" class="shadow-lg p-8 bg-white rounded-lg transition-transform transform hover:scale-105">
+          <div class="mb-6">
+            <label for="x" class="block text-gray-700 font-semibold">Enter number</label>
             <input
               style="text-transform: uppercase"
               type="text"
               id="x"
               name="x"
-              class="form-input mt-1 block w-full"
+              class="form-input mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               required
               autofocus
             />
             <div id="inputError" class="text-red-500 mt-2 hidden"></div>
           </div>
-          <div class="mb-4">
-            <label for="sel1" class="block text-gray-700">From Base</label>
-            <select name="sel1" id="sel1" class="form-select mt-1 block w-full">
+          <div class="mb-6">
+            <label for="sel1" class="block text-gray-700 font-semibold">From Base</label>
+            <select name="sel1" id="sel1" class="form-select mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
               <option value="2">2 (Binary)</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -75,9 +75,9 @@
               <option value="36">36</option>
             </select>
           </div>
-          <div class="mb-4">
-            <label for="sel2" class="block text-gray-700">To base</label>
-            <select name="sel2" id="sel2" class="form-select mt-1 block w-full">
+          <div class="mb-6">
+            <label for="sel2" class="block text-gray-700 font-semibold">To base</label>
+            <select name="sel2" id="sel2" class="form-select mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
               <option value="2">2 (Binary)</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -115,12 +115,12 @@
               <option value="36">36</option>
             </select>
           </div>
-          <div id="ab" class="mb-4 flex justify-between">
+          <div id="ab" class="mb-6 flex justify-between">
             <button
               id="convertBtn"
               type="button"
               title="Convert"
-              class="btn btn-success bg-green-500 text-white px-4 py-2 rounded"
+              class="btn btn-success bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:outline-none transition-transform transform hover:scale-105"
               onclick="onconvert()"
               disabled
             >
@@ -130,7 +130,7 @@
                 viewBox="0 0 25 25"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style="vertical-align: middle; margin-right: 5px"
+                class="inline-block mr-2"
               >
                 <path
                   d="M13.6 11.5799V14.3099C13.6 16.5899 12.69 17.4999 10.41 17.4999H7.69C5.42 17.4999 4.5 16.5899 4.5 14.3099V11.5799C4.5 9.3099 5.41 8.3999 7.69 8.3999H10.42C12.69 8.3999 13.6 9.3099 13.6 11.5799Z"
@@ -167,7 +167,7 @@
               id="br"
               type="button"
               title="Clear"
-              class="btn btn-secondary bg-gray-500 text-white px-4 py-2 rounded"
+              class="btn btn-secondary bg-gray-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105"
               onclick="onclear()"
             >
               <svg
@@ -176,7 +176,7 @@
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style="vertical-align: middle; margin-right: 5px"
+                class="inline-block mr-2"
               >
                 <path
                   d="M9 9L15 15"
@@ -208,7 +208,7 @@
               id="br"
               type="reset"
               title="Reset"
-              class="btn btn-secondary bg-gray-500 text-white px-4 py-2 rounded"
+              class="btn btn-secondary bg-gray-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105"
               onclick="onrst()"
             >
               <svg
@@ -217,7 +217,7 @@
                 height="20"
                 viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
-                style="vertical-align: middle; margin-right: 5px"
+                class="inline-block mr-2"
               >
                 <g data-name="Layer 39" id="Layer_39">
                   <path
@@ -232,24 +232,24 @@
             </button>
           </div>
           <br />
-          <div class="mb-4">
-            <label for="y" id="ylabel" class="block text-gray-700">Result number</label>
+          <div class="mb-6">
+            <label for="y" id="ylabel" class="block text-gray-700 font-semibold">Result number</label>
             <textarea
               rows="2"
               id="y"
-              class="form-textarea mt-1 block w-full"
+              class="form-textarea mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               readonly
             ></textarea>
           </div>
-          <div class="mb-4">
-            <button onclick="copy(event)" class="btn btn-secondary bg-gray-500 text-white px-4 py-2 rounded">
+          <div class="mb-6">
+            <button onclick="copy(event)" class="btn btn-secondary bg-gray-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105">
               <svg
                 fill="#ffffff"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
-                style="vertical-align: middle; margin-right: 5px"
+                class="inline-block mr-2"
               >
                 <path
                   d="M8,7 L8,8 L6.5,8 C5.67157288,8 5,8.67157288 5,9.5 L5,18.5 C5,19.3284271 5.67157288,20 6.5,20 L13.5,20 C14.3284271,20 15,19.3284271 15,18.5 L15,17 L16,17 L16,18.5 C16,19.8807119 14.8807119,21 13.5,21 L6.5,21 C5.11928813,21 4,19.8807119 4,18.5 L4,9.5 C4,8.11928813 5.11928813,7 6.5,7 L8,7 Z M16,4 L10.5,4 C9.67157288,4 9,4.67157288 9,5.5 L9,14.5 C9,15.3284271 9.67157288,16 10.5,16 L17.5,16 C18.3284271,16 19,15.3284271 19,14.5 L19,7 L16.5,7 C16.2238576,7 16,6.77614237 16,6.5 L16,4 Z M20,6.52797748 L20,14.5 C20,15.8807119 18.8807119,17 17.5,17 L10.5,17 C9.11928813,17 8,15.8807119 8,14.5 L8,5.5 C8,4.11928813 9.11928813,3 10.5,3 L16.4720225,3 C16.6047688,2.99158053 16.7429463,3.03583949 16.8535534,3.14644661 L19.8535534,6.14644661 C19.9641605,6.25705373 20.0084195,6.39523125 20,6.52797748 Z M17,6 L18.2928932,6 L17,4.70710678 L17,6 Z M11.5,13 C11.2238576,13 11,12.7761424 11,12.5 C11,12.2238576 11.2238576,12 11.5,12 L13.5,12 C13.7761424,12 14,12.2238576 14,12.5 C14,12.7761424 13.7761424,13 13.5,13 L11.5,13 Z M11.5,11 C11.2238576,11 11,10.7761424 11,10.5 C11,10.2238576 11.2238576,10 11.5,10 L16.5,10 C16.7761424,10 17,10.2238576 17,10.5 C17,10.7761424 16.7761424,11 16.5,11 L11.5,11 Z M11.5,9 C11.2238576,9 11,8.77614237 11,8.5 C11,8.22385763 11.2238576,8 11.5,8 L16.5,8 C16.7761424,8 17,8.22385763 17,8.5 C17,8.77614237 16.7761424,9 16.5,9 L11.5,9 Z"
@@ -260,8 +260,8 @@
           </div>
           <div class="form-group"></div>
           <div id="calgroup" class="form-group">
-            <label class="block text-gray-700">Calculation</label>
-            <div id="cal" class="form-control bg-gray-200 p-4 rounded">
+            <label class="block text-gray-700 font-semibold">Calculation</label>
+            <div id="cal" class="form-control bg-gray-200 p-4 rounded-lg">
               <div id="cal1">
                 <p>Base <span id="b1txt"></span> to decimal calculation:</p>
                 <p id="cal1txt"></p>
@@ -294,7 +294,7 @@
     <script src="./assets/script/main.js"></script>
   </body>
   <footer class="text-center mt-10">
-    Deployed by <a href="https://github.com/oboshor" class="text-blue-500">Saad Ahmed</a>
+    Deployed by <a href="https://github.com/oboshor" class="text-blue-500 hover:underline">Saad Ahmed</a>
   </footer>
   <footer class="text-center mt-2">
     All rights reserved | Copyright &copy;
