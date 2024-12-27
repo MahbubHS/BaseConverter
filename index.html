@@ -9,35 +9,55 @@
       name="description"
       content="Base conversion calculator with steps: binary, decimal, octal, hex conversion."
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/stylesheet/main.css" />
     <script src="https://cdn.jsdelivr.net/npm/bignumber.js/bignumber.min.js"></script>
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="./assets/stylesheet/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/stylesheet/style.css"
+    />
   </head>
 
   <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-      <h1 class="text-center text-4xl font-bold text-gray-800">Base Converter</h1>
+      <h1 class="text-center text-3xl font-bold text-gray-800">
+        Base Converter
+      </h1>
       <br />
-      <div class="content">
-        <p class="text-center text-lg text-gray-600">Convert number from any base to any base:</p>
-        <form id="calcform" autocomplete="off" class="shadow-lg p-8 bg-white rounded-lg transition-transform transform hover:scale-105">
-          <div class="mb-6">
-            <label for="x" class="block text-gray-700 font-semibold">Enter number</label>
+      <div class="md:justify-items-center">
+        <p class="text-center mb-4 text-gray-600">
+          Convert number from any base to any base :
+        </p>
+        <form
+          id="calcform"
+          autocomplete="off"
+          class="shadow-lg p-8 bg-white rounded-lg transition-transform"
+        >
+          <div class="mb-5">
+            <label for="x" class="block text-gray-700 font-semibold"
+              >Enter number</label
+            >
             <input
               style="text-transform: uppercase"
-              type="text"
+              type="number"
               id="x"
               name="x"
-              class="form-input mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              class="form-input mt-2 block w-full pl-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition-colors"
               required
               autofocus
             />
             <div id="inputError" class="text-red-500 mt-2 hidden"></div>
           </div>
-          <div class="mb-6">
-            <label for="sel1" class="block text-gray-700 font-semibold">From Base</label>
-            <select name="sel1" id="sel1" class="form-select mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+          <div class="mb-4">
+            <label for="sel1" class="block text-gray-700 font-semibold"
+              >From Base</label
+            >
+            <select
+              name="sel1"
+              id="sel1"
+              class="form-select px-3 py-2 mt-2 block w-full border border-gray-300 focus:outline-none rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            >
               <option value="2">2 (Binary)</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -75,9 +95,15 @@
               <option value="36">36</option>
             </select>
           </div>
-          <div class="mb-6">
-            <label for="sel2" class="block text-gray-700 font-semibold">To base</label>
-            <select name="sel2" id="sel2" class="form-select mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+          <div class="mb-4">
+            <label for="sel2" class="block text-gray-700 font-semibold"
+              >To base</label
+            >
+            <select
+              name="sel2"
+              id="sel2"
+              class="form-select mt-2 px-3 py-2 block w-full border border-gray-300 focus:outline-none rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            >
               <option value="2">2 (Binary)</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -115,14 +141,13 @@
               <option value="36">36</option>
             </select>
           </div>
-          <div id="ab" class="mb-6 flex justify-between">
+          <div id="ab" class="flex justify-between">
             <button
               id="convertBtn"
               type="button"
               title="Convert"
-              class="btn btn-success bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:outline-none transition-transform transform hover:scale-105"
+              class="flex bg-green-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-800 focus:ring-2 mr-4 focus:ring-green-700 focus:outline-none transition-transform transform hover:scale-105 disabled disabled:scale-1"
               onclick="onconvert()"
-              disabled
             >
               <svg
                 width="20"
@@ -167,7 +192,7 @@
               id="br"
               type="button"
               title="Clear"
-              class="btn btn-secondary bg-gray-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105"
+              class="flex bg-gray-500 text-white px-3 py-2 rounded-lg shadow-md hover:bg-gray-600 mr-4 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105"
               onclick="onclear()"
             >
               <svg
@@ -208,7 +233,7 @@
               id="br"
               type="reset"
               title="Reset"
-              class="btn btn-secondary bg-gray-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105"
+              class="flex bg-gray-500 text-white px-3 py-2 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105"
               onclick="onrst()"
             >
               <svg
@@ -232,17 +257,23 @@
             </button>
           </div>
           <br />
-          <div class="mb-6">
-            <label for="y" id="ylabel" class="block text-gray-700 font-semibold">Result number</label>
+          <div class="mb-3">
+            <label for="y" id="ylabel" class="block text-gray-700 font-semibold"
+              >Result number</label
+            >
             <textarea
               rows="2"
               id="y"
-              class="form-textarea mt-2 block w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              class="form-textarea mt-2 block w-full border px-3 py-2 border-gray-300 rounded-lg focus:ring-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition-colors"
               readonly
             ></textarea>
           </div>
           <div class="mb-6">
-            <button onclick="copy(event)" class="btn btn-secondary bg-gray-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105">
+            <button
+              type="button"
+              onclick="copy(event)"
+              class="btn btn-secondary bg-gray-500 text-white px-3 py-2 rounded-lg shadow-md hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:outline-none transition-transform transform hover:scale-105"
+            >
               <svg
                 fill="#ffffff"
                 width="20"
@@ -258,43 +289,56 @@
               Copy
             </button>
           </div>
-          <div class="form-group"></div>
-          <div id="calgroup" class="form-group">
+          <div class="item-center content-center justify-items-center"></div>
+          <div id="calgroup">
             <label class="block text-gray-700 font-semibold">Calculation</label>
-            <div id="cal" class="form-control bg-gray-200 p-4 rounded-lg">
+            <div
+              id="cal"
+              class="form-control bg-gray-200 border border-gray-300 p-4 rounded-lg"
+            >
               <div id="cal1">
-                <p>Base <span id="b1txt"></span> to decimal calculation:</p>
+                <p class="font-semibold my-2">
+                  Base <span id="b1txt"></span> to decimal calculation :
+                </p>
                 <p id="cal1txt"></p>
               </div>
-              <div id="cal2">
-                <p>
+              <div id="cal2" class="flex flex-col items-center">
+                <p class="font-semibold my-2">
                   Decimal to base
-                  <span id="b2txt"></span> calculation:
+                  <span id="b2txt"></span> calculation :
                 </p>
                 <p id="cal2dec"></p>
-                <p>Divide by the base to get the digits from the remainders:</p>
-                <table id="cal2tbl" class="table-auto w-full">
+                <p class="font-2xl mt-2">
+                  Divide by the base to get the digits from the remainders.
+                </p>
+                <table
+                  id="cal2tbl"
+                  class="table-auto bg-slate-300 rounded-md content-center mx-auto"
+                >
                   <thead>
                     <tr>
-                      <th>Division</th>
-                      <th>Quotient</th>
-                      <th>Remainder</th>
-                      <th>Index (Z-A)</th>
+                      <th class="border-gray-400 border-b p-1">Division</th>
+                      <th class="border-gray-400 border-b p-1">Quotient</th>
+                      <th class="p-1">Remainder</th>
+                      <th class="border-gray-400 border-b p-1">Index (Z-A)</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
                 </table>
-                <p id="cal2result"></p>
+                <p class="my-4" id="cal2result"></p>
               </div>
             </div>
           </div>
         </form>
       </div>
     </div>
-    <script src="./assets/script/main.js"></script>
+    <script src="/assets/script/main.js"></script>
   </body>
-  <footer class="text-center mt-10">
-    Deployed by <a href="https://github.com/oboshor" class="text-blue-500 hover:underline">Saad Ahmed</a>
+  <footer class="text-center mt-7">
+    Deployed by
+    <a href="https://github.com/oboshor" class="text-blue-500 hover:underline"
+      >Saad Ahmed</a
+    >
   </footer>
   <footer class="text-center mt-2">
     All rights reserved | Copyright &copy;
