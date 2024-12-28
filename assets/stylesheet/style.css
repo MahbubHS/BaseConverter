@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'poppins', sans-serif;
+  font-family: 'poppins', sans-serif !important;
   font-size: 14px;
   background-color: #f8f9fa; /* Default background color */
   color: #212529; /* Default text color */
