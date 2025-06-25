@@ -47,8 +47,8 @@ This calculator supports number conversions between the following bases:
 
 Feel free to use this number conversion calculator for your own calculations!
 ## Click now
-- GitHub-page : [Calculator](https://Oboshor.github.io/BaseConverter/index.html)
-- Vercel : [Converter-saad](https://converter-saad.vercel.app/)
+- GitHub-page : [Calculator](https://MahbubHS.github.io/BaseConverter/index.html)
+- Vercel : [Converter-saad](https://base-converter-saad.vercel.app/)
   
 ## Contact Me
 - Email: m.saad.bd.71@gmail.com
