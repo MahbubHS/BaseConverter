@@ -133,13 +133,3 @@ footer a {
     padding-left: 0;
   }
 }
-
-.btn-secondary {
-  background-color: #6c757d; /* Default button color */
-  border-color: #6c757d; /* Default button border color */
-}
-
-.btn-success {
-  background-color: #28a745; /* Default button color */
-  border-color: #28a745; /* Default button border color */
-}
