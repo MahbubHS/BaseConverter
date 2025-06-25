@@ -167,7 +167,7 @@ function onconvert() {
   var yd = yelem.value.match(/[\dA-Z]/g);
   var ylabel = "Result number";
   if (yd != null)
-    ylabel += " (" + yd.length + (yd.length == 1) ? " digit)" : " digits)";
+    ylabel += `(${yd.length}${(yd.length == 1) ? "digit":"digits"})`;
   document.getElementById("ylabel").innerHTML = ylabel;
   document.getElementById("b1txt").innerHTML = b1;
   document.getElementById("b2txt").innerHTML = b2;
