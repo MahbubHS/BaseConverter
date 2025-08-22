@@ -1,0 +1,36 @@
+name: Black Duck Security Scan
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+      - stage
+      - release
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+      - stage
+      - release
+  workflow_dispatch: {}
+jobs:
+  blackducksca:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Black Duck Security Scan
+        id: black-duck-security-scan
+        uses: blackduck-inc/black-duck-security-scan@v2
+        with:
+          blackducksca_url: ${{ vars.BLACKDUCKSCA_URL }}
+          blackducksca_token: ${{ secrets.BLACKDUCKSCA_TOKEN }}
+          blackducksca_waitForScan: true
+          mark_build_status: failure
+          include_diagnostics: false
+          blackducksca_prComment_enabled: false
+          blackducksca_fixpr_enabled: false
+          blackducksca_reports_sarif_create: false
+          blackducksca_upload_sarif_report: false
