@@ -30,7 +30,8 @@ jobs:
           blackducksca_waitForScan: true
           mark_build_status: failure
           include_diagnostics: false
-          blackducksca_prComment_enabled: false
-          blackducksca_fixpr_enabled: false
+          blackducksca_prComment_enabled: true
+          github_token: ${{ secrets.GH_TOKEN }}
+          blackducksca_fixpr_enabled: true
           blackducksca_reports_sarif_create: false
           blackducksca_upload_sarif_report: false
